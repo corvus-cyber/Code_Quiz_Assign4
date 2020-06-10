@@ -1,0 +1,15 @@
+body {
+    background-color: #d9dcd6;
+}
+
+/*Provides formatting for the three htmls that overrides bootstrap*/
+@media screen and (max-width: 700px) {
+    .nav-bar {
+       padding: 0;
+        width: 640px;
+        position: absolute;
+    } 
+ .container {
+         width: 100%;
+     }
+}
