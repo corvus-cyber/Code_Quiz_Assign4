@@ -10,12 +10,16 @@ body {
     box-shadow: 0 0 20px; 
 }
 
-/*Provides formatting for the three htmls that overrides bootstrap*/
-@media screen and (max-width: 700px) {
-    .nav-bar {
-       padding: 0;
-        width: 640px;
-        position: absolute;
-    } 
-
+.evaporate {
+    display: none;
 }
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+
+/*Provides formatting for the three htmls that overrides bootstrap*/

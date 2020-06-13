@@ -12,34 +12,51 @@
   </head>
 
   <body>
-    <nav class="navbar-fluid">
-        <div class="row m-4">
-            <div class= "col-md-8 bg-light" id="Scores">
-                View Highscores   
-            </div>
-            <div class= "col-md-4 float-right-md" id="Timer">
-                Time
-            </div>
-        </div> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="#" class="navbar-brand"><h1>Coding Quiz</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ml-auto">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      High Scores
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+                </div>
+                <li class="nav-item" id="Timer">
+                        Time
+                </li>
+            </ul>
+        </div>
     </nav>
-      <div class="container-fluid">
+      <div class="container-fluid mt-5">
           <div class="row m-4 float-center">
                 <div class="column-12 m-auto">
                     <h1>Timed Code Quiz</h1>
                 </div>
           </div>
           <div class="row m-4" id="body">
-                <div class="column-5 p-4 m-auto">
-                    <p> This is a quiz that will test your knowledge and understanding of coding within the sphere of web development. <br>
+                <div class="column-5 p-4 m-auto" id="questions">
+                        <p>
+                        This is a quiz that will test your knowledge and understanding of coding within the sphere of web development. <br>
                         Upon pressing the start button you will be given a total of 60 seconds to complete the quiz. <br> 
                         After either the quiz either runs out of time or you finish you will be presented with your score. <br>
                         You will then be given the opportunity to post your score.
-                    </p>
+                      </p>
                 </div>
+                <div class="column-6 hide" id="question-box">
+                  <div id="answer-buttons" class="btn-grid">
+                    <button class="btn">A</button>
+                    <button class="btn">B</button>
+                    <button class="btn">C</button>
+                    <button class="btn">D</button>
+                  </div>
+                </div> 
           </div>
-          <div class= "row">
-                <div class="column-4">
-                    <button type="button" id="begin-test" class="btn btn-primary m-auto" btn-lg btn-block>Begin Test</button>
+            <div class= "row ml-2">
+                        <button type="button" id="begin-test" class="btn btn-primary" btn-lg btn-block>Begin Test</button>
                 </div>
             </div>
       </div>
