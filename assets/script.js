@@ -3,6 +3,7 @@ var questionbox = document.getElementById("questions");
 var HighScore = document.querySelector("dropdown-menu")
 var body = document.getElementById("body");
 var begintest = document.getElementById("begin-test");
+const answerbox = document.getElementById('answer-buttons')
 var secondsLeft = 60;
 var score = 0;
 var index = 0;
@@ -36,46 +37,61 @@ begintest.addEventListener("click", function(){
 
 function showQuestions(){
     questionbox.textContent= questions[index].question
-
     var myDiv= document.createElement("div")
     myDiv.setAttribute("class","row")
+    //JSON.stringify(answers);
+    for (var i=0;i<questions[index].answers.length; i++){
+        var button =document.createElement("button")
+        button.setAttribute("type","button")
+        button.textContent =questions[index].answers[i]
+        myDiv.appendChild(button)
+        
+    }
+    answerbox.appendChild(myDiv)
 }
 
+answerbox.addEventListener("click", function(){
+    if (questions.answers == questions.correct) {
+        alert ("you've got it right!")
+        
+    }
+})
 
 
-const questions = [
+
+
+var questions = [
     {
       question: 'What does CSS stand for?',
-      answers: [
-        { text: 'Cascading Style Sheet', correct: true },
-        { text: 'Corrective Syntex System', correct: false }
-      ]
+      answers: ['Cascading Style Sheet', 'Corrective Syntex System'],
+      correct: ['Cascading Style Sheet']
+      
     },
-    {
-      question: 'Inside which HTML element do we put the Javascript?',
-      answers: [
-        { text: '<js>', correct: false },
-        { text: '<script>', correct: true },
-        { text: '<javascript>', correct: false },
-        { text: '<scripting>', correct: false }
-      ]
-    },
-    {
-      question: 'What does HTML stand for?',
-      answers: [
-        { text: 'Home Tool Markup Language', correct: false },
-        { text: 'Hyper Text Markup Language', correct: true },
-        { text: 'Hyperlinks and Text Markup Language', correct: false }
-      ]
-    },
-    {
-      question: 'what property is used to change the font of an element in css?',
-      answers: [
-        { text: 'font-family', correct: true },
-        { text: 'font-weight', correct: false },
-        { text: 'font-style', correct: false}
-      ]
-    }
+    // {
+    //   question: 'Inside which HTML element do we put the Javascript?',
+    //   answers: [
+    //     { text: '<js>', correct: false },
+    //     { text: '<script>', correct: true },
+    //     { text: '<javascript>', correct: false },
+    //     { text: '<scripting>', correct: false }
+    //   ]
+    // },
+    // {
+    //   question: 'What does HTML stand for?',
+    //   answers: [
+    //     { text: 'Home Tool Markup Language', correct: false },
+    //     { text: 'Hyper Text Markup Language', correct: true },
+    //     { text: 'Hyperlinks and Text Markup Language', correct: false }
+    //   ]
+    // },
+    // {
+    //   question: 'what property is used to change the font of an element in css?',
+    //   answers: [
+    //     { text: 'font-family', correct: true },
+    //     { text: 'font-weight', correct: false },
+    //     { text: 'font-style', correct: false}
+    //   ]
+    // }
   ]
 
 
