@@ -7,7 +7,8 @@ const answerbox = document.getElementById('answer-buttons')
 var secondsLeft = 60;
 var score = 0;
 var index = 0;
-
+var secondindex = 0;
+var answerindex = 0;
 
 begintest.addEventListener("click", function(){
     //This will make the start button disappear when the test begins
@@ -18,6 +19,9 @@ begintest.addEventListener("click", function(){
             //Should they answer incorrectly, take 5 seconds away from secondsLeft
             //Should they answer correctly, add 5 seconds to SecondsLeft 
             countdownEl.textContent = secondsLeft + " seconds";
+            if (secondsLeft===10){
+                alert("Better hurry up, time is running out")
+            }
 
             if (secondsLeft===0){
                 clearInterval(timerInterval);
@@ -27,19 +31,13 @@ begintest.addEventListener("click", function(){
     }
     Timer (); 
     showQuestions();
-     
-
-    //Create multiple choice questions 
-
-    //Make it so that it scores the rounds
 
 })
 
 function showQuestions(){
-    questionbox.textContent= questions[index].question
-    var myDiv= document.createElement("div")
+    questionbox.textContent= questions[index].question;
+    myDiv= document.createElement("div");
     myDiv.setAttribute("class","row")
-    //JSON.stringify(answers);
     for (var i=0;i<questions[index].answers.length; i++){
         var button =document.createElement("button")
         button.setAttribute("type","button")
@@ -51,11 +49,19 @@ function showQuestions(){
 }
 
 answerbox.addEventListener("click", function(event){
-    if (event.target.innerHTML === questions.correct) {
+    if (event.target.innerHTML === questions[secondindex].correct) {
         console.log("you've got it right")
-        alert("You've got it right");
+        alert("You've got it right"); 
+        index++;
+        secondindex++;
+        myDiv.innerHTML = "";
         
     }
+    else {secondsLeft -= 5}
+    myDiv.innerHTML = "";
+    index++;
+    
+    showQuestions();
 })
 
 
@@ -65,34 +71,23 @@ var questions = [
     {
       question: 'What does CSS stand for?',
       answers: ['Cascading Style Sheet', 'Corrective Syntex System'],
-      correct: ['Cascading Style Sheet']
-      
+      correct: 'Cascading Style Sheet',
     },
-    // {
-    //   question: 'Inside which HTML element do we put the Javascript?',
-    //   answers: [
-    //     { text: '<js>', correct: false },
-    //     { text: '<script>', correct: true },
-    //     { text: '<javascript>', correct: false },
-    //     { text: '<scripting>', correct: false }
-    //   ]
-    // },
-    // {
-    //   question: 'What does HTML stand for?',
-    //   answers: [
-    //     { text: 'Home Tool Markup Language', correct: false },
-    //     { text: 'Hyper Text Markup Language', correct: true },
-    //     { text: 'Hyperlinks and Text Markup Language', correct: false }
-    //   ]
-    // },
-    // {
-    //   question: 'what property is used to change the font of an element in css?',
-    //   answers: [
-    //     { text: 'font-family', correct: true },
-    //     { text: 'font-weight', correct: false },
-    //     { text: 'font-style', correct: false}
-    //   ]
-    // }
+    {
+      question: 'Inside which HTML element do we put the Javascript?',
+      answers: ['<js>', '<script>', '<javascript>', '<scripting>'],
+      correct: '<script>',  
+     },
+    {
+      question: 'What does HTML stand for?',
+      answers: ['Home Tool Markup Language', 'Hyper Text Markup Language', 'Hyperlinks and Text Markup Language'],
+      correct: 'Hyper Text Markup Language'
+    },
+    {
+      question: 'what property is used to change the font of an element in css?',
+      answers: ['font-family', 'font-weight', 'font-style'],
+      correct: 'font-family',
+    }
   ]
 
 
