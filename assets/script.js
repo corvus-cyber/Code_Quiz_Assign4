@@ -50,9 +50,10 @@ function showQuestions(){
     answerbox.appendChild(myDiv)
 }
 
-answerbox.addEventListener("click", function(){
-    if (questions.answers == questions.correct) {
-        alert ("you've got it right!")
+answerbox.addEventListener("click", function(event){
+    if (event.target.innerHTML === questions.correct) {
+        console.log("you've got it right")
+        alert("You've got it right");
         
     }
 })
