@@ -1,13 +1,16 @@
 var countdownEl = document.querySelector("#Timer");
+var questionbox = document.getElementById("questions");
 var HighScore = document.querySelector("dropdown-menu")
 var body = document.getElementById("body");
 var begintest = document.getElementById("begin-test");
 var secondsLeft = 60;
 var score = 0;
+var index = 0;
 
 
 begintest.addEventListener("click", function(){
-    begintest.classList.add('evaporate')
+    //This will make the start button disappear when the test begins
+    begintest.classList.add('evaporate');
     function Timer(){
         var timerInterval = setInterval(function(){
             secondsLeft --;
@@ -22,13 +25,60 @@ begintest.addEventListener("click", function(){
         }, 1000);   
     }
     Timer (); 
-    //Issue: timer increases pace when start button is pressed multiple times 
+    showQuestions();
+     
 
     //Create multiple choice questions 
 
     //Make it so that it scores the rounds
 
 })
+
+function showQuestions(){
+    questionbox.textContent= questions[index].question
+
+    var myDiv= document.createElement("div")
+    myDiv.setAttribute("class","row")
+}
+
+
+
+const questions = [
+    {
+      question: 'What does CSS stand for?',
+      answers: [
+        { text: 'Cascading Style Sheet', correct: true },
+        { text: 'Corrective Syntex System', correct: false }
+      ]
+    },
+    {
+      question: 'Inside which HTML element do we put the Javascript?',
+      answers: [
+        { text: '<js>', correct: false },
+        { text: '<script>', correct: true },
+        { text: '<javascript>', correct: false },
+        { text: '<scripting>', correct: false }
+      ]
+    },
+    {
+      question: 'What does HTML stand for?',
+      answers: [
+        { text: 'Home Tool Markup Language', correct: false },
+        { text: 'Hyper Text Markup Language', correct: true },
+        { text: 'Hyperlinks and Text Markup Language', correct: false }
+      ]
+    },
+    {
+      question: 'what property is used to change the font of an element in css?',
+      answers: [
+        { text: 'font-family', correct: true },
+        { text: 'font-weight', correct: false },
+        { text: 'font-style', correct: false}
+      ]
+    }
+  ]
+
+
 
 //Present final score to user within a function
 
