@@ -25,7 +25,7 @@ function showScores() {
     for (var i = 0; i < scoreList.length; i++) {
         console.log("HERE:", scoreList[i][0] + scoreList[i][1])
         var par = document.createElement("p");
-        par.innerText = scoreList[i][0] + "-" + scoreList[i][1]
+        par.innerText = scoreList[i][0] + " " + scoreList[i][1]
         HighScore.appendChild(par)
     }
 }
@@ -74,7 +74,7 @@ function showQuestions() {
                 alert("You've got it right");
             }
             else {
-                secondsLeft -= 5;
+                secondsLeft -= 10;
                 alert("You answered incorrectly; that means less time for you")
             }
             index++;

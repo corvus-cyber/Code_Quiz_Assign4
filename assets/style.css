@@ -29,3 +29,7 @@ body {
     text-align: center;
     text-decoration: none;
 }
+.submitform {
+    max-width: 33%;
+    padding: 1%;
+}
