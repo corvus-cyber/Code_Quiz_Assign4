@@ -89,14 +89,9 @@ function showResults() {
     clearInterval(timerInterval);
     title.textContent = "Score: " + secondsLeft;
     answerbox.innerHTML= "";
+    //this will reveal the submission form hidden in html
     submitform.classList.remove("evaporate")
 
-
-    //Creates a submit button that will push the entered initials and high score to the highscore board
-    var submitbttn = document.createElement("button");
-    submitbttn.setAttribute("type", "button");
-    submitbttn.textContent = "SUBMIT";
-    begintest.appendChild(submitbttn);
 
 
     
