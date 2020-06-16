@@ -1,11 +1,15 @@
 var countdownEl = document.querySelector("#Timer");
 var title = document.getElementById("Header")
 var questionbox = document.getElementById("questions");
-var HighScore = document.querySelector("dropdown-menu")
+var HighScore = document.querySelector(".dropdown-menu")
 var body = document.getElementById("body");
 var begintest = document.getElementById("begin-test");
 const answerbox = document.getElementById('answer-buttons')
 var submitform = document.querySelector("form")
+var submitbttn = document.querySelector("#Submitbttn")
+var initials = document.querySelector("#initials");
+
+
 var secondsLeft = 60;
 var score = 0;
 var index = 0;
@@ -19,10 +23,8 @@ begintest.addEventListener("click", function () {
     begintest.classList.add('evaporate');
     function Timer() {
         timerInterval = setInterval(function () {
-            "Time: ", secondsLeft--;
-            //Should they answer incorrectly, take 5 seconds away from secondsLeft
-            //Should they answer correctly, add 5 seconds to SecondsLeft 
-            countdownEl.textContent = secondsLeft + " seconds";
+            secondsLeft--;
+            countdownEl.textContent = "Time: " + secondsLeft + " seconds";
             if (secondsLeft === 10) {
                 alert("Better hurry up, time is running out")
             }
@@ -40,9 +42,7 @@ begintest.addEventListener("click", function () {
 
 function showQuestions() {
     questionbox.textContent = questions[index].question;
-    // myDiv = document.createElement("div");
-    // myDiv.setAttribute("class", "row")
-    answerbox.innerHTML="";
+    answerbox.innerHTML = "";
     for (var i = 0; i < questions[index].answers.length; i++) {
         var button = document.createElement("button")
         button.setAttribute("type", "button")
@@ -66,7 +66,7 @@ function showQuestions() {
             }
             index++;
             answerbox.innerHTML = "";
-            
+
             if (index < questions.length) {
                 showQuestions()
             }
@@ -74,29 +74,42 @@ function showQuestions() {
                 showResults()
             }
         })
-    }    
+    }
 }
-
-
-       
-    
-    
-
-  
-
 
 function showResults() {
     clearInterval(timerInterval);
+    questionbox.innerHTML = "";
+    answerbox.innerHTML = "";
     title.textContent = "Score: " + secondsLeft;
-    answerbox.innerHTML= "";
     //this will reveal the submission form hidden in html
     submitform.classList.remove("evaporate")
 
 
 
-    
+
 
 }
+
+submitbttn.addEventListener("click", function (e) {
+    e.preventDefault();
+    var userint =initials.value
+    if (userint.length > 2 || initials.value.length == 0) {
+        alert("You need at most two characters")
+    }
+    else {
+        
+        var p= document.createElement("p");
+        p.textContent = userint + " " + secondsLeft;
+        HighScore.appendChild(p); 
+        localStorage.setItem("key", HighScore.textContent)
+
+        var lastUser = localStorage.getItem("key")
+        HighScore = lastUser.
+
+
+    }    
+})
 
 //Question array that contains objects with the correct answers being recorded as the integer 
 var questions = [
@@ -132,5 +145,18 @@ var questions = [
 //Place the option in for the User to put in Initals and score for their score to be recorded 
 
 //Score will be loaded to the local storage 
+
+// Store something into local storage
+localStorage.setItem("key", "value")
+
+var value = localStorage.getItem("key")
+
+localStorage.removeItem("key")
+
+localStorage.setItem("array", JSON.stringify(["WH 10", 1, 2]))
+
+var parsedArr = JSON.parse(localStorage.getItem("array"));
+
+// TODO - Retrieve local storage high scores and populate the dropdown when the app starts
 
 
