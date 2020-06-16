@@ -1,9 +1,11 @@
 var countdownEl = document.querySelector("#Timer");
+var title = document.getElementById("Header")
 var questionbox = document.getElementById("questions");
 var HighScore = document.querySelector("dropdown-menu")
 var body = document.getElementById("body");
 var begintest = document.getElementById("begin-test");
 const answerbox = document.getElementById('answer-buttons')
+var submitform = document.querySelector("form")
 var secondsLeft = 60;
 var score = 0;
 var index = 0;
@@ -17,7 +19,7 @@ begintest.addEventListener("click", function () {
     begintest.classList.add('evaporate');
     function Timer() {
         timerInterval = setInterval(function () {
-            secondsLeft--;
+            "Time: ", secondsLeft--;
             //Should they answer incorrectly, take 5 seconds away from secondsLeft
             //Should they answer correctly, add 5 seconds to SecondsLeft 
             countdownEl.textContent = secondsLeft + " seconds";
@@ -27,7 +29,7 @@ begintest.addEventListener("click", function () {
 
             if (secondsLeft === 0) {
                 showResults();
-                //Create a function for the final score should secondsLeft === 0 
+
             }
         }, 1000);
     }
@@ -47,7 +49,8 @@ function showQuestions() {
         button.textContent = questions[index].answers[i]
         button.setAttribute("click", i);
         button.setAttribute("index", index);
-        button.setAttribute("id", "I" + index + i)
+        button.setAttribute("id", "I" + index + i);
+        button.classList.add("bttns");
         answerbox.appendChild(button)
         document.getElementById("I" + index + i).addEventListener("click", function (event) {
             console.log("Event target:", event.target)
@@ -84,11 +87,23 @@ function showQuestions() {
 
 function showResults() {
     clearInterval(timerInterval);
-    questionbox.textContent = "results"
+    title.textContent = "Score: " + secondsLeft;
+    answerbox.innerHTML= "";
+    submitform.classList.remove("evaporate")
+
+
+    //Creates a submit button that will push the entered initials and high score to the highscore board
+    var submitbttn = document.createElement("button");
+    submitbttn.setAttribute("type", "button");
+    submitbttn.textContent = "SUBMIT";
+    begintest.appendChild(submitbttn);
+
+
+    
 
 }
 
-
+//Question array that contains objects with the correct answers being recorded as the integer 
 var questions = [
     {
         question: 'What does CSS stand for?',
@@ -103,7 +118,7 @@ var questions = [
     {
         question: 'What does HTML stand for?',
         answers: ['Home Tool Markup Language', 'Hyper Text Markup Language', 'Hyperlinks and Text Markup Language'],
-        correct: 0
+        correct: 1
     },
     {
         question: 'what property is used to change the font of an element in css?',

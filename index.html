@@ -13,7 +13,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="#" class="navbar-brand"><h1>Coding Quiz</h1></a>
+        <a href="#" class="navbar-brand" id="Timer">Time: 60 Seconds</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,7 +31,7 @@
       <div class="container-fluid mt-5">
           <div class="row m-4">
                 <div class="column-6">
-                  <h1 id="Timer">Timed Code Quiz</h1>
+                  <h1 id="Header">Timed Code Quiz</h1>
                 </div>
           </div>
           <div class="row m-4" id="body">
@@ -41,11 +41,18 @@
                         After either the quiz either runs out of time or you finish you will be presented with your score. <br>
                         You will then be given the opportunity to post your score.
                 </div>
-                <div class="column-6 hide" id="question-box">
+                <div class="column-6">
                   <div class="btn-grid" id="answer-buttons">
                   </div>
                 </div> 
           </div>
+          <form class= evaporate>
+            <div class="submitform">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Initials">
+              <small id="emailHelp" class="form-text text-muted">Enter your Initials so that your score can be recorded </small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
             <div class= "row ml-2">
                         <button type="button" id="begin-test" class="btn btn-primary" btn-lg btn-block>Begin Test</button>
                 </div>

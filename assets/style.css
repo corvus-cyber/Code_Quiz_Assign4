@@ -19,6 +19,14 @@ body {
     grid-template-columns: repeat(2, auto);
     gap: 10px;
     margin: 20px 0;
-  }
+}
 
-
+.bttns {
+    background-color: #4682B4;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
