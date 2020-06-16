@@ -12,8 +12,6 @@ var initials = document.querySelector("#initials");
 
 var secondsLeft = 60;
 var index = 0;
-var secondindex = 0;
-var answerindex = 0;
 var timerInterval;
 
 //var scoresList = localStorage.getItem("key") ?  || [
