@@ -11,13 +11,28 @@ var initials = document.querySelector("#initials");
 
 
 var secondsLeft = 60;
-var score = 0;
 var index = 0;
 var secondindex = 0;
 var answerindex = 0;
 var timerInterval;
 
+//var scoresList = localStorage.getItem("key") ?  || [
+var scoreList = []
+if (localStorage.getItem("key")) {
+    scoreList = JSON.parse(localStorage.getItem("key"))
 
+}
+function showScores() {
+    HighScore.innerHTML = "";
+    for (var i = 0; i < scoreList.length; i++) {
+        console.log("HERE:", scoreList[i][0] + scoreList[i][1])
+        var par = document.createElement("p");
+        par.innerText = scoreList[i][0] + "-" + scoreList[i][1]
+        HighScore.appendChild(par)
+    }
+}
+
+showScores()
 begintest.addEventListener("click", function () {
     //This will make the start button disappear when the test begins
     begintest.classList.add('evaporate');
@@ -93,22 +108,23 @@ function showResults() {
 
 submitbttn.addEventListener("click", function (e) {
     e.preventDefault();
-    var userint =initials.value
+    var userint = initials.value
     if (userint.length > 2 || initials.value.length == 0) {
         alert("You need at most two characters")
     }
     else {
-        
-        var p= document.createElement("p");
-        p.textContent = userint + " " + secondsLeft;
-        HighScore.appendChild(p); 
-        localStorage.setItem("key", HighScore.textContent)
 
-        var lastUser = localStorage.getItem("key")
-        HighScore = lastUser.
+        var p = " ";
+        p = [userint, secondsLeft];
+        console.log("P:", p)
+        scoreList.push(p)
+        localStorage.setItem("key", JSON.stringify(scoreList));
+        showScores();
 
 
-    }    
+
+
+    }
 })
 
 //Question array that contains objects with the correct answers being recorded as the integer 
@@ -146,16 +162,7 @@ var questions = [
 
 //Score will be loaded to the local storage 
 
-// Store something into local storage
-localStorage.setItem("key", "value")
 
-var value = localStorage.getItem("key")
-
-localStorage.removeItem("key")
-
-localStorage.setItem("array", JSON.stringify(["WH 10", 1, 2]))
-
-var parsedArr = JSON.parse(localStorage.getItem("array"));
 
 // TODO - Retrieve local storage high scores and populate the dropdown when the app starts
 
