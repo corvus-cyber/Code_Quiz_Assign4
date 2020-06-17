@@ -17,7 +17,7 @@ var submitbttn = document.querySelector("#Submitbttn");
 //This is the actual box that the initials of the user will be placed in 
 var initials = document.querySelector("#initials");
 
-
+//This variable contains the seconds beginning in the countdown
 var secondsLeft = 60;
 var index = 0;
 var timerInterval;
@@ -165,19 +165,5 @@ var questions = [
     }
 ]
 
-
-
-//Present final score to user within a function
-
-
-//Loop the timer in so that if the timer === 0 it will take user here 
-
-//Place the option in for the User to put in Initals and score for their score to be recorded 
-
-//Score will be loaded to the local storage 
-
-
-
-// TODO - Retrieve local storage high scores and populate the dropdown when the app starts
 
 

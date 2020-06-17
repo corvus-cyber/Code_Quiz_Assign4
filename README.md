@@ -14,6 +14,8 @@ The purpose of this assignment was to create a multiple choice quiz that had a c
 * Inside of this function I placed a click event that would check to see if the answer's placement in the array matched the correct integer. If it did, nothing happened besides the program moving on to the next question. If it was incorrect, the program would subtract ten seconds from the timer to penalize the user. 
 * I then constructed a function that would reveal the submission form at the end of the quiz (either when the timer ran out or the user finished).
 * Upon writing their intials (less than two characters but greater than zero), the score and their initials would be placed within an array of arrays that would be moved to local storage via JSON stringify, and then would be populated within the score dropdown via JSON parse. 
+* CSS: 
+* Finally, I used css to customize the appearance of the html 
 
 # Issues I Encountered:
 * The biggest issue I encountered was using an array in order to hold all of my questions, answers and correct statements. Initially I wrote out the correct answer as a string, but an instructional assistant showed how the slightest mistake with that would make it so that the function would not choose any answer as correct. Instead, I had to learn the more elegent method of placing an integer in "correct" that corresponded with the placement of the matching answer in its array. (example if the answer was number three on the array, correct would be labeled as 2, because the array starts at zero).
