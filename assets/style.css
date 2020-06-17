@@ -1,7 +1,9 @@
+/*Provides background color to the main body*/
 body {
     background-color: #d9dcd6;
 }
 
+/*Provides the dimensions, color and appearance of the container, giving it a professional look*/
 .container-fluid {
     max-width: 80%;
     background-color: white;
@@ -10,17 +12,19 @@ body {
     box-shadow: 0 0 20px; 
 }
 
+/*This class will be used to hide unnessecary content until needed*/
 .evaporate {
     display: none;
 }
 
+/*Gives the necesscary perameters for the answer buttons*/
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
     margin: 20px 0;
 }
-
+ /*Gives the buttons a nice coloring and further enhances them*/
 .bttns {
     background-color: #4682B4;
     border: none;
@@ -29,7 +33,9 @@ body {
     text-align: center;
     text-decoration: none;
 }
+
+/*Helps with the spacing and appearance of the submit form, keeping it from taking up unnessecary space*/
 .submitform {
-    max-width: 33%;
+    max-width: 50%;
     padding: 1%;
 }
